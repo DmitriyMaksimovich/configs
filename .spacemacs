@@ -147,7 +147,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 15
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -326,7 +326,7 @@ you should place your code here."
   (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
   (diff-hl-flydiff-mode '(:global t))
   (setq neo-theme 'icons)
-
+  (add-hook 'clojure-mode-hook 'paredit-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
