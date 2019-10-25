@@ -1,0 +1,18 @@
+(defun dotspacemacs/user-config ()
+  "Configuration function for user code.
+This function is called at the very end of Spacemacs initialization after
+layers configuration.
+This is the place where most of your configurations should be done. Unless it is
+explicitly specified that a variable should be set before a package is loaded,
+you should place your code here."
+  (diff-hl-flydiff-mode '(:global t))
+  (setq neo-theme 'icons)
+  (add-hook 'clojure-mode-hook 'paredit-mode)
+  (setq powerline-default-separator 'slant) ;; arrow slant
+  (setq-default indicate-empty-lines nil)
+  (add-hook 'org-mode-hook '(lambda () (visual-line-mode 1)))
+  (setq org-agenda-files (append (file-expand-wildcards "~/org/*.org")))
+  (set-variable 'dirtrack-list '("^.*[^ ]+:\\(.*\\)]" 1 nil))
+  (dirtrack-mode 1)
+  )
+
