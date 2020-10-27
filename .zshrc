@@ -113,16 +113,3 @@ setopt hist_find_no_dups
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-function sp() {
-    if [ "$1" != "" ]
-    then
-	ssh p@shard"$1"
-    else
-	echo choose a shard, bastard!
-    fi
-}
-
-function title {
-	echo -e "\033];$1\007"
-}
