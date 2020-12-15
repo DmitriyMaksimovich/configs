@@ -351,6 +351,8 @@ you should place your code here."
   (customize-set-variable 'helm-ff-lynx-style-map t)
   (setq-default sp-escape-quotes-after-insert nil)
   (setq org-agenda-files (append (file-expand-wildcards "~/org/*.org")))
+  (add-hook 'python-mode-hook
+	  (lambda () (setq indent-tabs-mode t)))
   )
 
 
