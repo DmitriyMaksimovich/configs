@@ -348,11 +348,15 @@ you should place your code here."
   (setq powerline-default-separator 'slant) ;; arrow slant
   (setq-default indicate-empty-lines nil)
   (add-hook 'org-mode-hook '(lambda () (visual-line-mode 1)))
+  (customize-set-variable 'helm-ff-lynx-style-map t)
+  (setq-default sp-escape-quotes-after-insert nil)
   (setq org-agenda-files (append (file-expand-wildcards "~/org/*.org")))
   (customize-set-variable 'helm-ff-lynx-style-map t)
   (setq-default sp-escape-quotes-after-insert nil)
   (add-hook 'python-mode-hook 'pyvenv-mode)
   (add-hook 'python-mode-hook 'flycheck-mode)
+  (add-hook 'python-mode-hook
+	  (lambda () (setq indent-tabs-mode t)))
   )
 
 

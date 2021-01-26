@@ -1,0 +1,186 @@
+[colors]
+; Based on gruvbox colors
+background = #1d2021
+background-alt = #282828
+foreground = #a89984
+foreground-alt = #665c54
+primary = #458588
+secondary = #cc241d
+alert = #689d6a
+white = #ebdbb2
+yellow = #d79921
+
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+  
+[bar/hive]
+tray-position = none
+monitor = ${env:MONITOR:HDMI1}
+;monitor = ${env:MONITOR:LVDS1}
+width = 100%
+height = 21
+offset-x = 0
+offset-y = 0
+wm-restack = i3
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 0
+overline-color = #f00
+underline-size = 0
+underline-color = ${colors.primary}
+
+border-bottom-size = 0
+border-bottom-color = ${colors.secondary}
+
+spacing = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = DejaVuSansMono:size=10;2
+font-1 = FontAwesome:size=12;2
+font-2 = WunconSiji:size=14;2
+font-3 = "Font Awesome 12 Free:style=Regular:pixelsize=16;2"
+font-4 = "Font Awesome 12 Free:style=Regular:pixelsize=12;2"
+
+modules-left = i3 
+modules-center = mpd
+modules-right = cpu memory volume date keyboard wlan
+
+;tray-position = right
+;tray-padding = 2
+
+
+[module/i3]
+type = internal/i3
+index-sort = true
+
+ws-icon-[0-9]+ = label;icon
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 
+
+strip-wsnumbers = true
+
+label-focused = %{F#d79921}%name%%{F-}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 1
+
+label-unfocused = %name%
+label-unfocused-padding = 1
+label-unfocused-foreground = ${colors.foreground-alt}
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.alert}
+label-urgent-padding = 1
+
+label-visible = %name%
+label-visible-padding = 1
+
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+
+interval = 2
+
+format-online = %{F#689d6a}<icon-prev> <toggle> <icon-next> <label-time>  <label-song>%{F-}
+label-song = %artist% - %title%
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-seekb = 
+icon-seekf = 
+icon-repeatone = 
+icon-consume = 
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "%{F#83a598}CPU %{F-}"
+format-prefix-foreground = ${colors.foreground-alt}
+label = %{F#83a598}%percentage%%{F-}
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "%{F#83a598}MEM%{F-} "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %{F#83a598}%percentage_used%%{F-}
+
+
+[module/volume]
+type = internal/volume
+master-mixer = Master
+
+format-volume = %{T4}<label-volume> <bar-volume>%{T-}
+label-volume = 
+label-volume-foreground = ${root.foreground}
+
+format-muted-foreground = ${colors.foreground-alt}
+format-muted = %{F#b16286}--sound-muted--%{F-}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #b16286
+bar-volume-foreground-1 = #b16286
+bar-volume-foreground-2 = #b16286
+bar-volume-foreground-3 = #b16286
+bar-volume-foreground-4 = #d79921
+bar-volume-foreground-5 = #d65d0e
+bar-volume-foreground-6 = #cc241d
+bar-volume-gradient = false
+bar-volume-indicator = %{T5}•%{T-}
+bar-volume-indicator-font = 2
+bar-volume-indicator-foreground = #ff
+bar-volume-fill = %{T4}─%{T-}
+bar-volume-fill-font = 3
+bar-volume-empty = %{T4}─%{T-}
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "| %a, %d %B |"
+time = "%H:%M |"
+label = "%{F#83a598}%date%%{F-} %{F#b16286}%time%%{F-}"
+
+
+[module/keyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+label-layout = %layout% |
+
+
+[module/wlan]
+type = internal/network
+interface = wlp9s0
+interval = 2.0
+
+format-connected = %{A1:$HOME/.config/polybar/nmcli-rofi/nmcli-rofi:}<label-connected>%{A}
+format-disconnected = %{A1:$HOME/.config/polybar/nmcli-rofi/nmcli-rofi:}<label-disconnected>%{A}
+label-connected = " " 
+label-disconnected = " "
