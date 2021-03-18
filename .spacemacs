@@ -340,6 +340,7 @@ you should place your code here."
 
   ;; lsp
   (setq lsp-enable-file-watchers nil)
+  (setq lsp-headerline-breadcrumb-icons-enable nil)
 
   ;; org
   (setq org-agenda-files (append (file-expand-wildcards "~/Documents/org/*.org")))
