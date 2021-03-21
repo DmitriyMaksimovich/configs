@@ -60,6 +60,10 @@
        :desc "activate" "a" #'pyvenv-activate
        :desc "create" "c" #'pyvenv-create
        :desc "deactivate" "d" #'pyvenv-deactivate))
+(map! :localleader
+      :map python-mode-map
+      :desc "realgud:pdb"
+      "p" #'realgud:pdb)
 
 
 ;; org
