@@ -53,8 +53,14 @@
       "M-8"  #'winum-select-window-8
       "M-9"  #'winum-select-window-9
  )
+(map! :leader :desc "Zen mode" "t z" #'+zen/toggle)
+(map! :localleader
+      :map python-mode-map
+      (:prefix ("v" . "venv")
+       :desc "activate" "a" #'pyvenv-activate
+       :desc "create" "c" #'pyvenv-create
+       :desc "deactivate" "d" #'pyvenv-deactivate))
 
-;; (define-key map (kbd "M-4") 'winum-select-window-4)
 
 ;; org
 (setq org-directory "~/Documents/org/")
