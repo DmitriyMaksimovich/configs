@@ -32,11 +32,15 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+;;(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-gruvbox)
+
+;;(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;;(add-hook 'window-setup-hook #'toggle-frame-fullscreen)
+;;(add-hook 'window-setup-hook #'toggle-frame-maximized)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (setq display-line-numbers-type t)
 (setq which-key-idle-delay 0)
 (setq doom-modeline-buffer-file-name-style 'buffer-name)
@@ -51,7 +55,7 @@
 (setq doom-localleader-key ",")
 (setq doom-localleader-alt-key "M-,")
 (map!
-      "M-0"  #'winum-select-window-0-or-10
+      "M-0"  #'treemacs-select-window
       "M-1"  #'winum-select-window-1
       "M-2"  #'winum-select-window-2
       "M-3"  #'winum-select-window-3
@@ -79,6 +83,9 @@
 (setq org-directory "~/Documents/org/")
 (setq org-superstar-headline-bullets-list '("#" "#" "#" "#"))
 (setq helm-move-to-line-cycle-in-source nil)
+;; (setq shell-file-name 'sh-zsh)
+
+(setq doom-modeline-env-version nil)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
