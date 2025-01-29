@@ -48,6 +48,19 @@
 ;; helm
 (add-to-list 'helm-ff-lynx-style-map t)
 
+;;centaur-tabs
+(after! centaur-tabs
+  (centaur-tabs-group-by-projectile-project)
+  :ensure t
+  :config
+   (setq centaur-tabs-style "bar"
+         centaur-tabs-set-bar 'over
+         centaur-tabs-height 32
+         centaur-tabs-set-icons t
+         centaur-tabs-gray-out-icons 'buffer)
+   (centaur-tabs-headline-match)
+   (centaur-tabs-mode t))
+
 ;; python
 
 ;; key bindings
@@ -86,6 +99,10 @@
 ;; (setq shell-file-name 'sh-zsh)
 
 (setq doom-modeline-env-version nil)
+
+(after! poetry
+  (remove-hook 'python-mode-hook #'poetry-tracking-mode)
+  (add-hook 'python-mode-hook 'poetry-track-virtualenv))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
