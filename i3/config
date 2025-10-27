@@ -152,7 +152,7 @@ client.background       #282828
 
 # borders
 for_window [class="^.*"] border pixel 5
-new_window pixel 5
+#new_window pixel 5
 hide_edge_borders none
 bindsym $mod+u border none
 bindsym $mod+y border pixel 5

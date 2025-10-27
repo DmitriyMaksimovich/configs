@@ -135,3 +135,14 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(use-package! lighthouse
+  :hook (prog-mode . lighthouse-mode) ; Enable in programming modes
+  :config
+  (setq lighthouse-highlight-color "#504945"))
+
+;;(with-eval-after-load 'lighthouse
+;;  (define-key lighthouse-mode-map (kbd "C-c h") #'lighthouse-toggle)
+;;  (define-key lighthouse-mode-map (kbd "C-c c") #'lighthouse-clear-all)
+;;  (define-key lighthouse-mode-map (kbd "C-c n") #'lighthouse-next)
+;;  (define-key lighthouse-mode-map (kbd "C-c p") #'lighthouse-prev))
